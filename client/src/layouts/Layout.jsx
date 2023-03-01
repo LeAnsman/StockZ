@@ -5,9 +5,9 @@ import Header from "./Header";
 
 export default function Layout() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-hidden">
       <Header />
-      <div className="w-11/12 xl:w-5/6 mx-auto min-h-[calc(100vh-56px)]">
+      <div className="w-11/12 xl:w-5/6 mx-auto min-h-screen mt-36">
         <Outlet />
       </div>
       <Footer />

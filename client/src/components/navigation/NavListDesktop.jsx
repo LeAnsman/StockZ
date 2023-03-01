@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-export default function NavList() {
+export default function NavListDesktop() {
   let inactiveClassName = "transition duration-500 hover:text-primary";
   let activeClassName = `${inactiveClassName} text-primary before:scale-x-100`;
 
@@ -37,7 +37,7 @@ export default function NavList() {
           Kids
         </NavLink>
       </li>
-      <li className="hidden xl:block">
+      <li className="hidden 2xl:block">
         <NavLink
           to={"/products/new"}
           className={({ isActive }) =>

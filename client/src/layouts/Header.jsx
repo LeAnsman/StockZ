@@ -1,39 +1,37 @@
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { AiOutlineShoppingCart, AiOutlineUser } from "react-icons/ai";
-import HeaderBanner from "../components/HeaderBanner";
-import NavList from "../components/NavList";
+import HeaderBanner from "../components/header/HeaderBanner";
+import Navigation from "../layouts/Navigation";
 
 export default function Header() {
-  let inactiveClassName =
-    "text-5xl font-ShareTechMono text-primary tracking-widest -rotate-2 transition duration-500 hover:rotate-2";
-  let activeClassName = `${inactiveClassName} underline underline-offset-4 rotate-0`;
+  // hide header on scrool
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [visible, setVisible] = useState(true);
+  const handleScroll = () => {
+    const currentScrollPos = window.scrollY;
+    if (currentScrollPos > 80 && currentScrollPos > prevScrollPos) {
+      setVisible(false);
+    } else {
+      setVisible(true);
+    }
+    setPrevScrollPos(currentScrollPos);
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  });
 
   return (
-    <header className="bg-white shadow-md">
-      <HeaderBanner />
-      <div className="grid grid-cols-3 mx-12 items-center py-3">
-        <NavList />
-        <NavMobile />
-        <div className="flex justify-center">
-          <NavLink
-            to={"/"}
-            className={({ isActive }) =>
-              isActive ? activeClassName : inactiveClassName
-            }
-          >
-            StockZ
-          </NavLink>
-        </div>
-
-        <div className="flex justify-end gap-8">
-          <button type="button">
-            <AiOutlineUser size={32} className="fill-primary" />
-          </button>
-          <button type="button">
-            <AiOutlineShoppingCart size={32} className="fill-primary" />
-          </button>
-        </div>
-      </div>
+    <header
+      className={`w-full bg-white shadow-lg fixed top-0 duration-500  ${
+        visible ? "lg:translate-y-0" : "lg:-translate-y-[150px]"
+      }`}
+    >
+      <HeaderBanner
+        text={"The New Big Foot Limited Edition Is Out. "}
+        to={"/products/new"}
+      />
+      <Navigation />
     </header>
   );
 }
