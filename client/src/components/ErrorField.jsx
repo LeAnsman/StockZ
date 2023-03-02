@@ -16,7 +16,7 @@ export default function ErrorField({
       <div
         className={
           showErrorField
-            ? "absolute flex items-center gap-4 bg-red-100 border border-secondary text-secondary rounded-lg mb-5 px-8 py-6 z-50 animate-fadeIn"
+            ? "absolute flex items-center gap-4 bg-red-100 border border-secondary text-secondary rounded-lg mb-7 px-8 py-4 z-50 animate-fadeIn"
             : "hidden"
         }
       >
