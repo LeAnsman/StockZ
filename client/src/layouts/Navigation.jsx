@@ -6,7 +6,7 @@ import NavMobile from "../components/navigation/NavMobile";
 import NavUser from "../components/navigation/NavUser";
 import NavCart from "../components/navigation/NavCart";
 
-export default function Navigation() {
+export default function Navigation({ visible }) {
   return (
     <nav className="grid grid-cols-3 items-center py-3 mx-8 lg:mx-24 ">
       <NavListDesktop />
@@ -14,7 +14,7 @@ export default function Navigation() {
       <NavLogo />
       <div className="flex justify-end gap-8">
         <NavUser />
-        <NavCart />
+        <NavCart visible={visible} />
       </div>
     </nav>
   );

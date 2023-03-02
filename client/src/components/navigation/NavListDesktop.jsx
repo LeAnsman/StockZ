@@ -2,7 +2,8 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 export default function NavListDesktop() {
-  let inactiveClassName = "transition duration-500 hover:text-primary";
+  let inactiveClassName =
+    "nav__list__item transition duration-500 hover:text-primary";
   let activeClassName = `${inactiveClassName} text-primary before:scale-x-100`;
 
   return (
@@ -51,9 +52,7 @@ export default function NavListDesktop() {
         <NavLink
           to={"/products/sale"}
           className={({ isActive }) =>
-            isActive
-              ? activeClassName
-              : inactiveClassName + " text-red-900 hover:text-primary"
+            isActive ? activeClassName : inactiveClassName + " text-red-900"
           }
         >
           Sale

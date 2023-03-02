@@ -23,7 +23,7 @@ export default function Header() {
 
   return (
     <header
-      className={`w-full bg-white shadow-lg fixed top-0 duration-500  ${
+      className={`w-full bg-white shadow-lg fixed top-0 transition duration-500 z-50 ${
         visible ? "lg:translate-y-0" : "lg:-translate-y-[150px]"
       }`}
     >
@@ -31,7 +31,7 @@ export default function Header() {
         text={"The New Big Foot Limited Edition Is Out. "}
         to={"/products/new"}
       />
-      <Navigation />
+      <Navigation visible={visible} />
     </header>
   );
 }

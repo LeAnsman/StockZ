@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { RxCross1, RxHamburgerMenu } from "react-icons/rx";
+import NavListMobile from "./NavListMobile";
 
 export default function NavMobile() {
   const [showNavMobile, setShowNavMobile] = useState(false);
@@ -35,6 +36,7 @@ export default function NavMobile() {
         <>
           <div
             className="fixed top-0 left-0 bg-black/50 h-screen w-full z-10 animate-fadeIn"
+            onClick={closeNavMobile}
             id="overlay"
           ></div>
           <div
@@ -47,6 +49,7 @@ export default function NavMobile() {
                 className="transition duration-500 hover:rotate-90 hover:text-primary"
               />
             </button>
+            <NavListMobile closeNavMobile={closeNavMobile} />
           </div>
         </>
       )}

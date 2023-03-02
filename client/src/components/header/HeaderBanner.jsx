@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function HeaderBanner({ text, to }) {
   return (
-    <div className="bg-secondary py-2">
+    <div className="bg-primary py-2">
       <p className="text-center text-sm text-white">
         {text}{" "}
         <Link to={to} className="underline">
