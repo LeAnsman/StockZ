@@ -4,9 +4,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#006340",
-        secondary: "#46513A",
-        third: "#212A2F",
+        primary: "#46513A",
+        secondary: "#212A2F",
+        third: "#006340",
+        primaryLight: "#758761",
       },
       fontFamily: {
         ShareTechMono: ["Share Tech Mono", "monospace"],
@@ -17,7 +18,6 @@ module.exports = {
         comeLeft: "comeFromLeft 0.35s ease-in",
         fadeRight: "fadeFromRight 0.35s ease-in",
         fadeLeft: "fadeFromLeft 0.35s ease-in",
-
         fadeIn: "fadeIn 0.35s ease-in",
         fadeOut: "fadeOut 0.35s ease-in",
       },
