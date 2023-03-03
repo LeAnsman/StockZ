@@ -8,10 +8,12 @@ export default function LoginForm() {
   const [password, setPassword] = useState("");
   const [passwordShown, setPasswordShown] = useState(false);
 
-  
-
   const toggleShowPassword = () => {
     setPasswordShown(!passwordShown);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
   };
 
   let inputClassName =
@@ -20,8 +22,11 @@ export default function LoginForm() {
     "absolute p-2 left-3 -top-5 bg-white text-primary text-sm transition-all peer-placeholder-shown:p-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-600 peer-placeholder-shown:top-1 peer-focus:-top-6 peer-focus:text-primary peer-focus:text-sm";
 
   return (
-    <form className="flex flex-col items-center gap-8 w-full my-8">
-      <div class="relative w-full">
+    <form
+      className="flex flex-col items-center gap-8 w-full my-8"
+      onSubmit={handleSubmit}
+    >
+      <div className="relative w-full">
         <input
           type="text"
           name="username"
@@ -39,7 +44,7 @@ export default function LoginForm() {
         </label>
       </div>
 
-      <div class="relative w-full">
+      <div className="relative w-full">
         <input
           type={passwordShown ? "text" : "password"}
           name="password"
@@ -59,11 +64,14 @@ export default function LoginForm() {
         passwordShown={passwordShown}
         toggleShowPassword={toggleShowPassword}
       />
-      <PrimaryButton className={"w-3/4 sm:w-1/2 2xl:w-1/3 mx-auto"}>
-        Login
-      </PrimaryButton>
+      <PrimaryButton type={"submit"}>Login</PrimaryButton>
 
-      <Link to={"/register"}>Not part of the warehouse yet ?</Link>
+      <Link
+        to={"/register"}
+        className="link__item transition duration-500 hover:text-white"
+      >
+        Not part of the warehouse yet ?
+      </Link>
     </form>
   );
 }

@@ -19,9 +19,7 @@ export default function NavCart({ visible }) {
     setTimeout(() => {
       menu.classList.add("opacity-0");
       overlay.classList.add("opacity-0");
-      setTimeout(() => {
-        setShowCartMenu(false);
-      }, 50);
+      setShowCartMenu(false);
     }, 300);
   };
 

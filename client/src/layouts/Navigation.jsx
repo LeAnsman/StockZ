@@ -8,7 +8,7 @@ import NavCart from "../components/navigation/NavCart";
 
 export default function Navigation({ visible }) {
   return (
-    <nav className="grid grid-cols-3 items-center py-3 mx-8 lg:mx-24 ">
+    <nav className="grid grid-cols-3 items-center py-3 mx-2 sm:mx-8 lg:mx-24 ">
       <NavListDesktop />
       <NavMobile />
       <NavLogo />
