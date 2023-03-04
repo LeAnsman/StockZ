@@ -5,6 +5,7 @@ import morgan from "morgan";
 import cookieParser from "cookie-parser";
 import { connect } from "./config/database.js";
 import authRoutes from "./routes/authRoutes.js";
+import requireAuth from "./middleware/authMiddleware.js";
 
 dotenv.config();
 connect();
@@ -25,5 +26,8 @@ app.use(
 );
 
 app.use("/", authRoutes);
+app.get("/checkout", requireAuth, (req, res) =>
+  res.send("Route that require auth")
+);
 
 export default app;
