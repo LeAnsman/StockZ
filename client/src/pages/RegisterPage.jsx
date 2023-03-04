@@ -5,6 +5,7 @@ import RegisterForm from "../components/RegisterForm";
 export default function RegisterPage() {
   const [errorField, setErrorField] = useState("");
   const [showErrorField, setShowErrorField] = useState(false);
+
   const closeErrorField = () => {
     const errorField = document.querySelector(`#errorField`);
 

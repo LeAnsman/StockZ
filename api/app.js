@@ -1,15 +1,17 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
+import morgan from "morgan";
+import cookieParser from "cookie-parser";
 import { connect } from "./config/database.js";
 import authRoutes from "./routes/authRoutes.js";
-import morgan from "morgan";
 
 dotenv.config();
 connect();
 const app = express();
 
 app.use(express.json());
+app.use(cookieParser());
 app.use(
   morgan(
     ":date[clf] - :method :url  -STATUS: :status  -RESPONSE-TIME: :response-time ms"

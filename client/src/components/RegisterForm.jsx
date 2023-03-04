@@ -31,7 +31,7 @@ export default function RegisterForm({ setErrorField }) {
         passwordConfirm,
       });
     } catch (err) {
-      setErrorField(err.response.data);
+      setErrorField(err.response.data.error);
     }
   };
 
