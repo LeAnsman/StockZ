@@ -10,12 +10,12 @@ export function UserContextProvider({ children }) {
   useEffect(() => {
     async function load() {
       if (!user) {
-        const { data } = await axios.get("/profile");
+        const { data } = await axios.post("/profile");
         setUser(data);
         setReady(true);
       }
     }
-    // load();
+    load();
   }, []);
   return (
     <UserContext.Provider value={{ user, setUser, ready }}>
