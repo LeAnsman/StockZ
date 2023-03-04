@@ -1,53 +1,64 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function NavListMobile({ closeNavMobile }) {
+  let inactiveClassName =
+    "nav__list__item transition duration-500 hover:text-primary";
+  let activeClassName = `${inactiveClassName} text-primary before:scale-x-100`;
   return (
-    <ul className="flex flex-col gap-[5vh] items-center mt-16  lg:hidden ">
+    <ul className="flex flex-col gap-[5vh] items-center mt-16  lg:hidden uppercase tracking-wider font-semibold ">
       <li>
-        <Link
+        <NavLink
           to={"/products/men"}
           onClick={closeNavMobile}
-          className="nav__list__item transition duration-500 hover:text-primary"
+          className={({ isActive }) =>
+            isActive ? activeClassName : inactiveClassName
+          }
         >
           Men
-        </Link>
+        </NavLink>
       </li>
       <li>
-        <Link
+        <NavLink
           to={"/products/women"}
           onClick={closeNavMobile}
-          className="nav__list__item transition duration-500 hover:text-primary"
+          className={({ isActive }) =>
+            isActive ? activeClassName : inactiveClassName
+          }
         >
           Women
-        </Link>
+        </NavLink>
       </li>
       <li>
-        <Link
+        <NavLink
           to={"/products/kids"}
           onClick={closeNavMobile}
-          className="nav__list__item transition duration-500 hover:text-primary"
+          className={({ isActive }) =>
+            isActive ? activeClassName : inactiveClassName
+          }
         >
           Kids
-        </Link>
+        </NavLink>
       </li>
       <li>
-        <Link
+        <NavLink
           to={"/products/new"}
           onClick={closeNavMobile}
-          className="nav__list__item transition duration-500 hover:text-primary"
+          className={({ isActive }) =>
+            isActive ? activeClassName : inactiveClassName
+          }
         >
           New&nbsp;Arrivals
-        </Link>
+        </NavLink>
       </li>
       <li>
-        <Link
+        <NavLink
           to={"/products/sale"}
           onClick={closeNavMobile}
           className="nav__list__item text-red-900 transition duration-500 hover:text-primary"
         >
           Sale
-        </Link>
+        </NavLink>
       </li>
     </ul>
   );

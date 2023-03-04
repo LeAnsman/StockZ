@@ -7,7 +7,7 @@ export default function NavListDesktop() {
   let activeClassName = `${inactiveClassName} text-primary before:scale-x-100`;
 
   return (
-    <ul className="hidden lg:flex gap-12 font-Jost font-medium uppercase">
+    <ul className="hidden lg:flex gap-12 font-medium uppercase">
       <li>
         <NavLink
           to={"/products/men"}

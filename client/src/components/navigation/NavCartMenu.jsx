@@ -11,13 +11,13 @@ export default function NavCartMenu({ closeCartMenu }) {
       </div>
       {emptyCart && (
         <>
-          <p className="mt-4 mb-8">Your cart empty</p>
+          <p className="mt-4 mb-8">Your cart is empty</p>
           <ul className="flex flex-col items-center gap-8">
             <li>
               <Link
                 to={"/products/men"}
                 onClick={closeCartMenu}
-                className="flex justify-center w-48 px-4 py-2 border-4"
+                className="flex justify-center w-48 px-4 py-2 border-4 transition duration-500 hover:border-primary"
               >
                 Shop Men
               </Link>
@@ -26,7 +26,7 @@ export default function NavCartMenu({ closeCartMenu }) {
               <Link
                 to={"/products/women"}
                 onClick={closeCartMenu}
-                className="flex justify-center w-48 px-4 py-2 border-4"
+                className="flex justify-center w-48 px-4 py-2 border-4 transition duration-500 hover:border-primary"
               >
                 Shop Women
               </Link>
@@ -35,9 +35,27 @@ export default function NavCartMenu({ closeCartMenu }) {
               <Link
                 to={"/products/kids"}
                 onClick={closeCartMenu}
-                className="flex justify-center w-48 px-4 py-2 border-4"
+                className="flex justify-center w-48 px-4 py-2 border-4 transition duration-500 hover:border-primary"
               >
                 Shop Kids
+              </Link>
+            </li>
+            <li>
+              <Link
+                to={"/login"}
+                onClick={closeCartMenu}
+                className="flex justify-center w-48 px-4 py-2 border-4 border-third transition duration-500 hover:border-primary"
+              >
+                Login
+              </Link>
+            </li>
+            <li>
+              <Link
+                to={"/register"}
+                onClick={closeCartMenu}
+                className="flex justify-center w-48 px-4 py-2 border-4 border-third transition duration-500 hover:border-primary"
+              >
+                Register
               </Link>
             </li>
           </ul>

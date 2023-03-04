@@ -12,7 +12,7 @@ export default function NavUser() {
             className="cursor-pointer transition duration-300 hover:fill-primary"
           />
         </Dropdown.Trigger>
-        <Dropdown.Content contentClasses="font-Jost font-medium uppercase text-2xl tracking-wider">
+        <Dropdown.Content contentClasses="font-medium uppercase text-2xl tracking-wider">
           <Dropdown.Link to={"/login"} className={"rounded-t-lg"}>
             Login
           </Dropdown.Link>
