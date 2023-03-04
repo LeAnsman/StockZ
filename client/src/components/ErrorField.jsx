@@ -8,26 +8,30 @@ export default function ErrorField({
   setErrorField,
 }) {
   const closeErrorField = () => {
-    setShowErrorField(false);
-    setErrorField("");
+    const errorField = document.querySelector(`#errorField`);
+
+    errorField.classList.add("animate-fadeOut");
+    setTimeout(() => {
+      setShowErrorField(false);
+      setErrorField("");
+    }, 300);
   };
   return (
-    <div className="flex justify-center items-end">
-      <div
-        className={
-          showErrorField
-            ? "absolute flex items-center gap-4 bg-red-100 border border-secondary text-secondary rounded-lg mb-7 px-8 py-4 z-50 animate-fadeIn"
-            : "hidden"
-        }
-      >
-        <p>{errorField}</p>
-        <button className="" onClick={closeErrorField}>
-          <RxCross1
-            size={24}
-            className="font-bold transition duration-500 hover:rotate-90 hover:text-primary"
-          />
-        </button>
-      </div>
+    <div
+      id="errorField"
+      className={
+        showErrorField
+          ? "absolute top-[140px] flex items-center gap-4 bg-red-100 border border-secondary text-secondary rounded-lg mb-7 px-8 py-4 z-50 animate-fadeIn"
+          : "hidden"
+      }
+    >
+      <p>{errorField}</p>
+      <button className="" onClick={closeErrorField}>
+        <RxCross1
+          size={24}
+          className="font-bold transition duration-500 hover:rotate-90 hover:text-primary"
+        />
+      </button>
     </div>
   );
 }
