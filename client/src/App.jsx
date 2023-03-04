@@ -8,6 +8,7 @@ import ProfilePage from "./pages/ProfilePage";
 import ProductsPage from "./pages/ProductsPage";
 import { UserContextProvider } from "./context/UserContext";
 import ProductPage from "./pages/ProductPage";
+import Page404 from "./pages/Page404";
 
 axios.defaults.baseURL = "http://localhost:4001";
 axios.defaults.withCredentials = true;
@@ -27,6 +28,7 @@ function App() {
           <Route path="/products/kids" element={<ProductsPage />} />
           <Route path="/products/new" element={<ProductsPage />} />
           <Route path="/products/sale" element={<ProductsPage />} />
+          <Route path="/*" element={<Page404 />} />
         </Route>
       </Routes>
     </UserContextProvider>
