@@ -6,16 +6,8 @@ export default function ErrorField({
   setShowErrorField,
   errorField,
   setErrorField,
+  closeErrorField,
 }) {
-  const closeErrorField = () => {
-    const errorField = document.querySelector(`#errorField`);
-
-    errorField.classList.add("animate-fadeOut");
-    setTimeout(() => {
-      setShowErrorField(false);
-      setErrorField("");
-    }, 300);
-  };
   return (
     <div
       id="errorField"
