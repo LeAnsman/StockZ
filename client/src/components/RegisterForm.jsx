@@ -1,11 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link, redirect } from "react-router-dom";
+import { Link, redirect, useNavigate } from "react-router-dom";
 import ErrorField from "./ErrorField";
 import PrimaryButton from "./PrimaryButton";
 import TogglePassword from "./TogglePassword";
 
 export default function RegisterForm({ setErrorField }) {
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -24,12 +25,15 @@ export default function RegisterForm({ setErrorField }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("/register", {
+      const { data } = await axios.post("/register", {
         username,
         email,
         password,
         passwordConfirm,
       });
+      if (data.user) {
+        navigate("/");
+      }
     } catch (err) {
       setErrorField(err.response.data.error);
     }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { RxCross1 } from "react-icons/rx";
 
 export default function ErrorField({
@@ -6,8 +6,25 @@ export default function ErrorField({
   setShowErrorField,
   errorField,
   setErrorField,
-  closeErrorField,
 }) {
+  const closeErrorField = () => {
+    const errorField = document.querySelector(`#errorField`);
+
+    errorField.classList.add("animate-fadeOut");
+    setTimeout(() => {
+      setShowErrorField(false);
+      setErrorField("");
+    }, 300);
+  };
+
+  useEffect(() => {
+    if (errorField?.length > 0) {
+      setShowErrorField(true);
+      setTimeout(() => {
+        closeErrorField();
+      }, 5000);
+    }
+  }, [errorField]);
   return (
     <div
       id="errorField"

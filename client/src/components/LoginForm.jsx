@@ -1,9 +1,11 @@
+import axios from "axios";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import PrimaryButton from "./PrimaryButton";
 import TogglePassword from "./TogglePassword";
 
-export default function LoginForm() {
+export default function LoginForm({ setErrorField }) {
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordShown, setPasswordShown] = useState(false);
@@ -12,8 +14,19 @@ export default function LoginForm() {
     setPasswordShown(!passwordShown);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    try {
+      const { data } = await axios.post("/login", {
+        username,
+        password,
+      });
+      if (data.user) {
+        navigate("/");
+      }
+    } catch (err) {
+      setErrorField(err.response.data.error);
+    }
   };
 
   let inputClassName =
@@ -35,9 +48,6 @@ export default function LoginForm() {
           onChange={(e) => setUsername(e.target.value)}
           className={inputClassName}
           placeholder="username"
-          min={3}
-          max={20}
-          required
         />
         <label htmlFor="username" className={labelClassName}>
           Username
@@ -53,7 +63,6 @@ export default function LoginForm() {
           onChange={(e) => setPassword(e.target.value)}
           className={inputClassName}
           placeholder="password"
-          required
         />
         <label htmlFor="password" className={labelClassName}>
           Password
@@ -64,7 +73,7 @@ export default function LoginForm() {
         passwordShown={passwordShown}
         toggleShowPassword={toggleShowPassword}
       />
-      <PrimaryButton type={"submit"}>Login</PrimaryButton>
+      <PrimaryButton type="submit">Login</PrimaryButton>
 
       <Link
         to={"/register"}
