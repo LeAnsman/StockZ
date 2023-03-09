@@ -95,11 +95,11 @@ const DropdownLink = ({ children, to, className }) => {
   );
 };
 
-const DropdownButton = ({ children, onClick }) => {
+const DropdownButton = ({ children, onClick, className }) => {
   return (
     <button
       onClick={onClick}
-      className="block w-full px-4 py-2 text-left text-lg md:text-sm leading-5 text-gray-700 hover:bg-primary hover:text-white focus:bg-primary transition duration-150 ease-in-out"
+      className={`block w-full px-4 py-2 text-left text-sm text-white bg-primary transition duration-300 hover:bg-[#758761] focus:bg-primary ${className}`}
     >
       {children}
     </button>
