@@ -1,6 +1,7 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { UserContext } from "../context/UserContext";
 import PrimaryButton from "./PrimaryButton";
 import TogglePassword from "./TogglePassword";
 
@@ -14,6 +15,8 @@ export default function LoginForm({ setErrorField }) {
     setPasswordShown(!passwordShown);
   };
 
+  const { setUser } = useContext(UserContext);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -21,6 +24,7 @@ export default function LoginForm({ setErrorField }) {
         username,
         password,
       });
+      setUser(data);
       if (data.user) {
         navigate("/");
       }
